@@ -1,0 +1,49 @@
+﻿@using OkeTask.Models
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Country>
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+	<div class="row">
+		<h1>Państwa</h1>
+	</div>
+
+	<table class="bordered">
+		<thead>
+		<tr>
+			<th data-field="name">Nazwa</th>
+			<th data-field="capital">Stolica</th>
+			<th data-field="Language">Język</th>
+			<th data-field="details"></th>
+		</tr>
+		</thead>
+		<tbody>
+		@{
+			foreach (var country in Model)
+			{
+				<tr>
+					<td>@country.Name</td>
+					<td>@country.Capital</td>
+					<td>@country.Language</td>
+					<td>
+						@Ajax.ActionLink("szczegóły","Details", new {id= country.Id}, new AjaxOptions {
+							UpdateTargetId = "target",
+							HttpMethod = "GET"
+						},new {@class="btn btn-small waves-effect waves-light lighten-2"})
+					</td>
+					
+				</tr>
+			}
+		}
+		</tbody>
+	</table>
+	@Html.PagedListPager(Model, page=>Url.Action("Index",new {page}))
+	<br/><div id="target"></div>
+
+</div>
+

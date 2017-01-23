@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>@Page.Title</title>
+	<link rel="stylesheet" href="~/content/materialize/css/materialize.css" />	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="~/content/Style.css" />
+
+	<script src="~/scripts/jquery-2.1.1.js"></script>			
+	<script src="~/scripts/jquery.validate.js"></script>
+	<script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+	<script src="~/scripts/materialize/materialize.js"></script>
+	<script src="~/scripts/jquery.unobtrusive-ajax.js"></script>
+
+	@RenderSection("head", false)
+</head>
+<body>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#" class="brand-logo">OKE</a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li>@Html.ActionLink("Załaduj przykładowa baze", "CreateTestsBase", "Home",null,new {@class="waves-effect waves-light btn"})</li>
+			<li>@Html.ActionLink("Importuj baze","Import","Home",null,new {@class="waves-effect waves-light btn"})</li>
+			<li>@Html.ActionLink("Pokaz wszystkie państwa","Index","Home",null,new {@class="waves-effect waves-light btn"})</li>
+			<li>@Html.ActionLink("Dodaj nowe państwo","Insert","Home", null,new { @class = "waves-effect waves-light btn" })</li>
+		</ul>
+	</div>
+</nav>
+@RenderBody()
+</body>
+</html>

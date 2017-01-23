@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Import";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+	<div class="row">
+		<h1>Importuj baze państw z pliku</h1>
+	</div>
+	
+		@using (Html.BeginForm("Import", "Home", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+			<div class="row">
+				<div class="file-field input-field col s6">
+					<div class="btn">
+						<span>Dodaj plik</span>
+						<input type="file" name="fileUpload">
+					</div>
+					<div class="file-path-wrapper">
+						<input class="file-path validate" type="text">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col s2 offset-s4">
+					<input type="submit" class="btn" value="Importuj">
+				</div>
+			</div>
+				}
+			</div>
+

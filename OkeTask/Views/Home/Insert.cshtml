@@ -1,0 +1,58 @@
+﻿@model OkeTask.Models.Country
+
+@{
+	ViewBag.Title = "Insert";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+	<div class="row">
+		<h2>Dodaj nowe Państwo</h2>
+	</div>
+	@using (Html.BeginForm()) {
+		<div class="row">
+			@Html.ValidationSummary()
+		</div>
+		<div class="row">
+			<div class="input-field col s6">
+				@Html.LabelFor(m => m.Name,"Nazwa państwa")
+				@Html.TextBoxFor(m => m.Name, new { type = "text", @class = "validate", id = "Name" })
+				@Html.ValidationMessageFor(m => m.Name)
+			</div>
+		
+			<div class="input-field col s6">
+				@Html.LabelFor(m => m.Capital, "Nazwa stolicy")
+				@Html.TextBoxFor(m => m.Capital, new { type = "text", @class = "validate" })
+				@Html.ValidationMessageFor(m => m.Capital)
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s6">
+				@Html.LabelFor(m => m.Language, "Język urzędowy")
+				@Html.TextBoxFor(m => m.Language, new { type = "text", @class = "validate", id = "Name" })
+				@Html.ValidationMessageFor(m => m.Language)
+			</div>
+
+			<div class="input-field col s6">
+				@Html.LabelFor(m => m.Population,"Ilość populacji")
+				@Html.TextBoxFor(m => m.Population, new { type = "number", @class = "validate" })
+				@Html.ValidationMessageFor(m => m.Population)
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s6">
+				@Html.LabelFor(m => m.Area,"Powierzchnia całkowita [km]")
+				@Html.TextBoxFor(m => m.Area, new { type = "number", @class = "validate", id = "Name" })
+				@Html.ValidationMessageFor(m=>m.Area)
+			</div>
+		</div>
+		<div class="row">
+			<button class="btn waves-effect waves-light" type="submit" name="action">
+				Dodaj
+			</button>
+		</div>
+
+	}
+</div>

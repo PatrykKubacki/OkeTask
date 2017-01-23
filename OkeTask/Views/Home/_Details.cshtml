@@ -1,0 +1,16 @@
+﻿@using OkeTask.Models
+@model Country
+
+<div class="row">
+	<div class="col s12 m5">
+		<div class="card-panel teal">
+			<span class="white-text">
+				<span class="card-title">Szczegóły państwa @Model.Name </span><br/>
+					@Html.Label("Stolica " + Model.Capital,new {@class="white-text"}) <br/>
+					@Html.Label("Język urzędowy " + Model.Language, new { @class = "white-text" }) <br/>
+					@Html.Label("Ilość populacji " + Model.Population, new { @class = "white-text" }) <br/>
+					@Html.Label("Powierzchnia całkowita " + Model.Area + " [km]", new { @class = "white-text" }) <br/>
+			</span>
+		</div>
+	</div>
+</div>
